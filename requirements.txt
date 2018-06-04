@@ -1,0 +1,13 @@
+sympy==1.1.1
+numpy==1.14.1
+Cython==0.27.3
+pyOpenSSL==18.0.0
+com==1.0.0
+cryptography==2.2.2
+protobuf==3.5.2.post1
+ipaddr==2.2.0
+java==0.0.1
+lxml==4.2.1
+org==1.0.0
+redis==2.10.6
+wincertstore==0.2
