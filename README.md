@@ -14,6 +14,6 @@ Note this is a work in progress -- the CNOT gates still need to be optimised. On
 
 <br>
 
-[1] J. L. Shanks, 1969, IEEE Transactions on Computers 18-5 457
+[1] J. L. Shanks, 1969, IEEE Transactions on Computers 18-5, 457
 
-[2] Jonathan Welch et al, 2014, New J. Phys. 16 033040
+[2] Jonathan Welch et al, 2014, New J. Phys. 16, 033040
