@@ -8,7 +8,9 @@ For example, here is a circuit for ![](https://latex.codecogs.com/gif.latex?e%5E
 
 ![circuit example](samples/example1.png)
 
-Supply a function that maps *i → H<sub>i,i</sub>* and the program will output QASM code for the circuit implementing *e<sup>i H</sup>*.
+Supply a function that maps *i → H<sub>i,i</sub>* and the program will output QASM code for the circuit implementing *e<sup>i H</sup>* up to a global phase.
+
+Note that this method will use *2<sup>n</sup>-3* fundamental gates in the worst case, so will not provide an efficient quantum circuit in general. Reference [2] details how to approximate the exponentiation to arbitrary precision and produce an efficient quantum circuit, but this project was designed to *exactly* replicate the desired operator.
 
 <br>
 
