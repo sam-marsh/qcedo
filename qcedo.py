@@ -2,21 +2,10 @@ import sympy as sp
 import string
 import random
 import itertools
-
-# dynamic programming memoization tool for computing discrete walsh functions
-def memoize(f):
-    cache = {}
-
-    def memoized_fn(*args):
-        if args not in cache:
-            cache[args] = f(*args)
-        return cache[args]
-
-    memoized_fn.cache = cache
-    return memoized_fn
+from functools import lru_cache
 
 # computes walsh function
-@memoize
+@lru_cache(maxsize=None)
 def wal(N, m, n):
     if m == 0:
         return 1
