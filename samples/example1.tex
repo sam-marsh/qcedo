@@ -1,0 +1,133 @@
+% 		def	YRVLR,0,'R(-85*t/4)'
+% 		def	VWTUZ,0,'R(75*t/4)'
+% 		def	CPFCK,0,'R(-45*t/4)'
+% 		def	BQXFS,0,'R(51*t/4)'
+% 		def	ZXJVN,0,'R(-153*t/4)'
+% 		def	WPFYR,0,'R(135*t/4)'
+% 		def	RKGFN,0,'R(-225*t/4)'
+% 		qubit q0
+% 		qubit q1
+% 		qubit q2
+% 		RKGFN	q0
+% 		cnot q0,q1
+% 		WPFYR	q1
+% 		cnot q0,q1
+% 		ZXJVN	q1
+% 		cnot q1,q2
+% 		BQXFS	q2
+% 		cnot q1,q2
+% 		cnot q1,q2
+% 		cnot q0,q2
+% 		CPFCK	q2
+% 		cnot q0,q2
+% 		cnot q1,q2
+% 		cnot q0,q2
+% 		VWTUZ	q2
+% 		cnot q0,q2
+% 		YRVLR	q2
+
+%  Time 01:
+%    Gate 00 RKGFN(q0)
+%  Time 02:
+%    Gate 01 cnot(q0,q1)
+%  Time 03:
+%    Gate 02 WPFYR(q1)
+%  Time 04:
+%    Gate 03 cnot(q0,q1)
+%  Time 05:
+%    Gate 04 ZXJVN(q1)
+%  Time 06:
+%    Gate 05 cnot(q1,q2)
+%  Time 07:
+%    Gate 06 BQXFS(q2)
+%  Time 08:
+%    Gate 07 cnot(q1,q2)
+%  Time 09:
+%    Gate 08 cnot(q1,q2)
+%  Time 10:
+%    Gate 09 cnot(q0,q2)
+%  Time 11:
+%    Gate 10 CPFCK(q2)
+%  Time 12:
+%    Gate 11 cnot(q0,q2)
+%  Time 13:
+%    Gate 12 cnot(q1,q2)
+%  Time 14:
+%    Gate 13 cnot(q0,q2)
+%  Time 15:
+%    Gate 14 VWTUZ(q2)
+%  Time 16:
+%    Gate 15 cnot(q0,q2)
+%  Time 17:
+%    Gate 16 YRVLR(q2)
+
+% Qubit circuit matrix:
+%
+% q0: gAxA, gBxA, n, gDxA, n, n, n, n, n, gJxA, n, gLxA, n, gNxA, n, gPxA, n, n
+% q1: n, gBxB, gCxB, gDxB, gExB, gFxB, n, gHxB, gIxB, n, n, n, gMxB, n, n, n, n, n
+% q2: n, n, n, n, n, gFxC, gGxC, gHxC, gIxC, gJxC, gKxC, gLxC, gMxC, gNxC, gOxC, gPxC, gQxC, n
+
+\documentclass[11pt]{article}
+\input{xyqcirc.tex}
+
+% definitions for the circuit elements
+
+\def\gAxA{\op{R(-225*t/4)}\w\A{gAxA}}
+\def\gBxA{\b\w\A{gBxA}}
+\def\gBxB{\o\w\A{gBxB}}
+\def\gCxB{\op{R(135*t/4)}\w\A{gCxB}}
+\def\gDxA{\b\w\A{gDxA}}
+\def\gDxB{\o\w\A{gDxB}}
+\def\gExB{\op{R(-153*t/4)}\w\A{gExB}}
+\def\gFxB{\b\w\A{gFxB}}
+\def\gFxC{\o\w\A{gFxC}}
+\def\gGxC{\op{R(51*t/4)}\w\A{gGxC}}
+\def\gHxB{\b\w\A{gHxB}}
+\def\gHxC{\o\w\A{gHxC}}
+\def\gIxB{\b\w\A{gIxB}}
+\def\gIxC{\o\w\A{gIxC}}
+\def\gJxA{\b\w\A{gJxA}}
+\def\gJxC{\o\w\A{gJxC}}
+\def\gKxC{\op{R(-45*t/4)}\w\A{gKxC}}
+\def\gLxA{\b\w\A{gLxA}}
+\def\gLxC{\o\w\A{gLxC}}
+\def\gMxB{\b\w\A{gMxB}}
+\def\gMxC{\o\w\A{gMxC}}
+\def\gNxA{\b\w\A{gNxA}}
+\def\gNxC{\o\w\A{gNxC}}
+\def\gOxC{\op{R(75*t/4)}\w\A{gOxC}}
+\def\gPxA{\b\w\A{gPxA}}
+\def\gPxC{\o\w\A{gPxC}}
+\def\gQxC{\op{R(-85*t/4)}\w\A{gQxC}}
+
+% definitions for bit labels and initial states
+
+\def\bA{\qrule }
+\def\bB{\qrule }
+\def\bC{\qrule }
+\def\fA{\qrule}
+\def\fB{\qrule}
+\def\fC{\qrule}
+
+% The quantum circuit as an xymatrix
+
+\xymatrix@R=5pt@C=10pt{
+    \bA & \gAxA &\gBxA &\n &\gDxA &\n &\n &\n &\n &\n &\gJxA &\n &\gLxA &\n &\gNxA &\n &\gPxA &\n &\n & \fA
+\\  \bB & \n &\gBxB &\gCxB &\gDxB &\gExB &\gFxB &\n &\gHxB &\gIxB &\n &\n &\n &\gMxB &\n &\n &\n &\n &\n & \fB
+\\  \bC & \n &\n &\n &\n &\n &\gFxC &\gGxC &\gHxC &\gIxC &\gJxC &\gKxC &\gLxC &\gMxC &\gNxC &\gOxC &\gPxC &\gQxC &\n & \fC
+%
+% vertical lines and other post-xymatrix latex
+%
+\nv{gBxB}{gBxA}
+\nv{gDxB}{gDxA}
+\nv{gFxC}{gFxB}
+\nv{gHxC}{gHxB}
+\nv{gIxC}{gIxB}
+\nv{gJxC}{gJxA}
+\nv{gLxC}{gLxA}
+\nv{gMxC}{gMxB}
+\nv{gNxC}{gNxA}
+\nv{gPxC}{gPxA}
+}
+
+\end{document}

@@ -1,4 +1,6 @@
 import sympy as sp
+import string
+import random
 
 # dynamic programming memoization tool for computing discrete walsh functions
 def memoize(f):
@@ -42,9 +44,9 @@ def msb(x):
 
 def generate_gates(n, fn):
     N = 2**n
+    ops = []
     for i in range(n):
-        print('\t\tqubit q%d' % (i))
-    print('\n')
+        ops.append('qubit q%d' % (i))
     for i in range(1, N):
         j = gray(i)
         z_rot = -2 * wc(fn, j, N)
@@ -55,11 +57,21 @@ def generate_gates(n, fn):
                 if (j >> k) & 1 == 1:
                     l.append(k)
             for k in reversed(l):
-                print('\tcnot q%d,q%d' % (k, q))
-            print('\trz(%s) q%d' % (z_rot, q))
+                ops.append('cnot q%d,q%d' % (k, q))
+            ops.append('rz(%s) q%d' % (z_rot, q))
             for k in l:
-                print('\tcnot q%d,q%d' % (k, q))
-
+                ops.append('cnot q%d,q%d' % (k, q))
+    new_ops = []
+    for op in ops:
+        if op.startswith('rz'):
+            last_part = op.split(') ')[-1]
+            op_name = ''.join(random.choice(string.ascii_uppercase) for x in range(5))
+            new_ops = ["def\t%s,0,'%s)'" % (op_name, ''.join(op.split(') ')[:-1]).replace('rz', 'R'))] + new_ops
+            new_ops.append(op_name + '\t' + last_part)
+        else:
+            new_ops.append(op)
+    for op in new_ops:
+        print('\t\t'+ op)
 
 if __name__ == '__main__':
     generate_gates(3, f)
