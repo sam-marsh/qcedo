@@ -12,6 +12,7 @@ Supply a function that maps *i → H<sub>i,i</sub>* and the program will output 
 
 <br>
 
-[1] J. L. Shanks, 1969, IEEE Transactions on Computers 18-5, 457
+<sub>[1] J. L. Shanks, 1969, IEEE Transactions on Computers 18-5, 457</sub>
 
-[2] Jonathan Welch et al, 2014, New J. Phys. 16, 033040
+<sub>[2] Jonathan Welch et al, 2014, New J. Phys. 16, 033040</sub>
+
