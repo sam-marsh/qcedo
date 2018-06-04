@@ -30,7 +30,7 @@ The `gates(n, fn)` function takes as input the number of qubits *n* and a functi
 ('CNOT', 0, 2)
 ('R', -85*t/4, 2)
 ```
-where `('R', θ, q)` represents a phase shift of *θ* on qubit *q*, and `('CNOT', qc, qt)` is a CNOT with control *qc* and target *qt*. Further, the function `print_qasm(n, gates)` takes in the number of qubits and the list of gates and converts it to QASM code. It can then be visualised with a program such as [qasm2circ](https://www.media.mit.edu/quanta/qasm2circ/).
+where `('R', θ, q)` represents a phase shift of *θ* on qubit *q*, and `('CNOT', qc, qt)` is a CNOT with control *qc* and target *qt*. Further, the function `print_qasm(n, gates)` takes in the number of qubits and the list of gates and converts it to QASM code. The circuit can then be visualised with a program such as [qasm2circ](https://www.media.mit.edu/quanta/qasm2circ/).
 
 <br>
 
