@@ -8,9 +8,28 @@ For example, here is a circuit for ![](https://latex.codecogs.com/gif.latex?e%5E
 
 ![circuit example](samples/example1.png)
 
-Supply a function that maps *i → H<sub>i,i</sub>* and the program will output QASM code for the circuit implementing *e<sup>i H</sup>* up to a global phase.
+Supply a function that maps *i → H<sub>i,i</sub>* and the program will output QASM code for the circuit implementing *e<sup>i H</sup>* up to a global phase. The circuit will always be composed of alternating phase shift and CNOT gates.
 
 Note that this method will use *2<sup>n</sup>-3* fundamental gates in the worst case, so will not provide an efficient quantum circuit in general. Reference [2] details how to approximate the exponentiation to arbitrary precision and produce an efficient quantum circuit, but this project was designed to *exactly* replicate the desired operator.
+
+### Usage
+
+The `gates(n, fn)` function takes as input the number of qubits `n` and a function `fn(x)` that takes `x = 0..2^n-1` to the corresponding diagonal element of the desired Hamiltonian. The output for the Hamiltonian above is 
+`
+('R', -225*t/4, 0)
+('CNOT', 0, 1)
+('R', 135*t/4, 1)
+('CNOT', 0, 1)
+('R', -153*t/4, 1)
+('CNOT', 1, 2)
+('R', 51*t/4, 2)
+('CNOT', 0, 2)
+('R', -45*t/4, 2)
+('CNOT', 1, 2)
+('R', 75*t/4, 2)
+('CNOT', 0, 2)
+('R', -85*t/4, 2)
+`
 
 <br>
 
