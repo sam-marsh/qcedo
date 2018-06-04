@@ -14,8 +14,8 @@ Note that this method will use *2<sup>n</sup>-3* fundamental gates in the worst 
 
 ### Usage
 
-The `gates(n, fn)` function takes as input the number of qubits `n` and a function `fn(x)` that takes `x = 0..2^n-1` to the corresponding diagonal element of the desired Hamiltonian. The output for the Hamiltonian above is 
-`
+The `gates(n, fn)` function takes as input the number of qubits *n* and a function *f(x)* that takes *x = 0 ... 2<sup>n</sup>-1* to the corresponding diagonal element of the desired Hamiltonian. The output for the Hamiltonian above is 
+```
 ('R', -225*t/4, 0)
 ('CNOT', 0, 1)
 ('R', 135*t/4, 1)
@@ -29,7 +29,8 @@ The `gates(n, fn)` function takes as input the number of qubits `n` and a functi
 ('R', 75*t/4, 2)
 ('CNOT', 0, 2)
 ('R', -85*t/4, 2)
-`
+```
+where `('R', θ, q)` represents a phase shift of *θ* on qubit *q*, and `('CNOT', qc, qt)` is a CNOT with control *qc* and target *qt*.
 
 <br>
 
