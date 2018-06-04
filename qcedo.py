@@ -44,18 +44,14 @@ def msb(x):
     return i
 
 def simplify_cnots(cnots):
-    changed = True
-    while changed:
+    while len(cnots) > 1:
         cnots = [k for k, g in itertools.groupby(cnots) if len(list(g))<2]
-        changed = False
         for i in range(len(cnots) - 1, 0, -1):
             if cnots[i][1] == cnots[i - 1][1] and cnots[i][2] < cnots[i-1][2]:
                 cnots[i], cnots[i-1] = cnots[i-1], cnots[i]
-                changed = True
             if cnots[i][2] == cnots[i-1][2] and cnots[i][1] < cnots[i-1][1]:
                 cnots[i], cnots[i-1] = cnots[i-1], cnots[i]
-                changed = True
-    return cnots
+    return cnots[0]
 
 def break_list(seq, cond):
     group = []
@@ -64,7 +60,7 @@ def break_list(seq, cond):
             if group:
                 yield simplify_cnots(group)
                 group = []
-            yield [num]
+            yield num
         else:
             group.append(num)
 
@@ -84,7 +80,7 @@ def generate_gates(n, fn):
         ops += l
         ops.append(('R', z_rot, q))
         ops += reversed(l)
-    return list(itertools.chain.from_iterable(break_list(ops, lambda x: x[0] == 'R')))
+    return list(break_list(ops, lambda x: x[0] == 'R'))
 
 def print_qasm(n, gates):
     qubits = ['qubit\tq%d' % (i) for i in range(n)]
