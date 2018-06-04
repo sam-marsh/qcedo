@@ -1,27 +1,27 @@
-		def	YRVLR,0,'R(-85*t/4)'
-		def	VWTUZ,0,'R(75*t/4)'
-		def	CPFCK,0,'R(-45*t/4)'
-		def	BQXFS,0,'R(51*t/4)'
-		def	ZXJVN,0,'R(-153*t/4)'
-		def	WPFYR,0,'R(135*t/4)'
-		def	RKGFN,0,'R(-225*t/4)'
+		def	KRGGO,0,'R(-85*t/4)'
+		def	PTWPX,0,'R(75*t/4)'
+		def	FDETL,0,'R(-45*t/4)'
+		def	TJLJR,0,'R(51*t/4)'
+		def	GVBDS,0,'R(-153*t/4)'
+		def	UHZWC,0,'R(135*t/4)'
+		def	GOFKV,0,'R(-225*t/4)'
 		qubit q0
 		qubit q1
 		qubit q2
-		RKGFN	q0
+		GOFKV	q0
 		cnot q0,q1
-		WPFYR	q1
+		UHZWC	q1
 		cnot q0,q1
-		ZXJVN	q1
+		GVBDS	q1
 		cnot q1,q2
-		BQXFS	q2
+		TJLJR	q2
 		cnot q1,q2
-		cnot q1,q2
-		cnot q0,q2
-		CPFCK	q2
-		cnot q0,q2
 		cnot q1,q2
 		cnot q0,q2
-		VWTUZ	q2
+		FDETL	q2
 		cnot q0,q2
-		YRVLR	q2
+		cnot q1,q2
+		cnot q0,q2
+		PTWPX	q2
+		cnot q0,q2
+		KRGGO	q2

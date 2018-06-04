@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=latex 2017.4.30)  4 JUN 2018 20:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=latex 2017.4.30)  4 JUN 2018 21:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -136,7 +136,7 @@ Package: xy 2013/10/06 Xy-pic version 3.8.9
 
 
 Writing index file example1.idx
-(/Users/Sam/Dropbox/Projects/qcedo/samples/example1.aux)
+No file example1.aux.
 \openout1 = `example1.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
@@ -159,13 +159,13 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 131.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 131.
- 20x3 2563>
-[1
+ 20x3 2563> [1
 
-] (/Users/Sam/Dropbox/Projects/qcedo/samples/example1.aux) ) 
+]
+(/Users/Sam/Dropbox/Projects/qcedo/samples/example1.aux) ) 
 Here is how much of TeX's memory you used:
- 2223 strings out of 493015
- 24990 string characters out of 6133377
+ 2221 strings out of 493015
+ 24882 string characters out of 6133377
  151459 words of memory out of 5000000
  5783 multiletter control sequences out of 15000+600000
  7828 words of font info for 32 fonts, out of 8000000 for 9000
