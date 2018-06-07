@@ -38,10 +38,10 @@ def break_list(seq):
         if num[0] == 'R':
             u = list(only_uniques(group))
             if u:
-                yield u[0]
+                yield u
                 group = []
             if num[1] != 0:
-                yield num
+                yield [num]
         else:
             group.append(num)
 
@@ -59,7 +59,7 @@ def gates(n, fn):
         ops += l
         ops.append(('R', z_rot, q))
         ops += reversed(l)
-    return list(break_list(ops))
+    return list(itertools.chain.from_iterable(break_list(ops)))
 
 def print_qasm(n, gates):
     qubits = ['qubit\tq%d' % (i) for i in range(n)]
@@ -76,7 +76,7 @@ def print_qasm(n, gates):
 
 if __name__ == '__main__':
     n = 4
-    arr = [random.randint(0, x) for x in range(2**n)]
+    arr = [random.randint(0, 3) for x in range(2**n)]
     f = lambda n : -arr[n] * sp.Symbol('t')
     #f = lambda n : -(2**n) * sp.Symbol('t')
     print('\n'.join(str(g) for g in gates(n, f)))
